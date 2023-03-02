@@ -1,0 +1,13 @@
+gcc-env:
+  compiler:
+      - toolchain: gcc
+        spec: gcc@12
+  unify: true
+  specs:
+  - osu-micro-benchmarks@5.9
+  - python@3.10
+  - cmake
+  - fmt
+  mpi:
+    spec: openmpi
+    gpu: false

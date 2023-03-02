@@ -1,0 +1,13 @@
+packages:
+  libfabric:
+    buildable: false
+    #variants: fabrics=efa,tcp,udp,sockets,verbs,shm,mrail,rxd,rxm
+    #- spec: libfabric@1.16.1 fabrics=efa,tcp,udp,sockets,verbs,shm,mrail,rxd,rxm
+    externals:
+    - spec: libfabric@1.16.1
+      prefix: /opt/amazon/efa
+  slurm:
+    buildable: false
+    externals:
+    - spec: slurm@22.05.8
+      prefix: /opt/slurm

@@ -28,6 +28,10 @@ class Mirror:
 
 class Recipe:
     valid_mpi_specs = {
+        "openmpi": (
+            "4.1.4",
+            "fabrics=ofi +legacylaunchers schedulers=slurm ^libfabric",
+        ),
         "cray-mpich": (None, None),
         "mpich": ("4.1", "device=ch4 netmod=ofi +slurm"),
         "mvapich2": (

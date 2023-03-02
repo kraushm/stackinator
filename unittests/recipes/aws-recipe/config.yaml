@@ -1,0 +1,6 @@
+name: basic-aws
+store: '/user-environment'
+system: 'aws'
+spack:
+    repo: https://github.com/spack/spack.git
+    commit: releases/v0.19
