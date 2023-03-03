@@ -79,6 +79,15 @@ def main():
             "env --ignore-environment PATH=/usr/bin:/bin:`pwd`"
             "/spack/bin make store.squashfs -j32"
         )
+        root_logger.warning(
+            f"\n!!ON AWS DON'T FORGET TO PATCH SPACK!!\n"
+        )
+        root_logger.info(
+            f"{builder.path}/spack/lib/spack/external/archspec/json/cpu/microarchitectures.json:"
+            '\n  "versions": "10.0:",'
+            '\n- "flags" : "-mcpu=neoverse-v1"'
+            '\n+ "flags" : "-march=armv8.4-a+rcpc+sve+profile"'
+        )
         return 0
     except Exception as e:
         root_logger.debug(traceback.format_exc())

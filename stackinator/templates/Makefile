@@ -55,8 +55,8 @@ modules: environments generate-config
 
 # Create a squashfs file from the installed software.
 store.squashfs: environments generate-config {% if modules %} modules {% endif %}
-
-	$(SANDBOX) env -u SOURCE_DATE_EPOCH "$$($(SANDBOX) $(SPACK) -e ./compilers/bootstrap find --format='{prefix}' squashfs | head -n1)/bin/mksquashfs" $(STORE) $@ -all-root -all-time $$(date +%s) -no-recovery -noappend -Xcompression-level 3
+	$(SANDBOX) env -u SOURCE_DATE_EPOCH mksquashfs $(STORE) $@ -all-root -no-recovery -noappend
+#	$(SANDBOX) env -u SOURCE_DATE_EPOCH "$$($(SANDBOX) $(SPACK) -e ./compilers/bootstrap find --format='{prefix}' squashfs | head -n1)/bin/mksquashfs" $(STORE) $@ -all-root -all-time $$(date +%s) -no-recovery -noappend -Xcompression-level 3
 
 # A backup of all the generated files during the build, useful for posterity,
 # excluding the binaries themselves, since they're in the squashfs file
